@@ -24,7 +24,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS",
 //      @"C:\Users\alex_\RiderProjects\DDD\Infrastructure\university-management-sy-d79a1-firebase-adminsdk-zaorj-52872fd400.json");
 //  builder.Services.AddSingleton(FirebaseApp.Create());
+
 builder.Services.AddControllers();
+
 // builder.Services.AddSession();
  // var app = builder.Build();
 // app.UseSession();

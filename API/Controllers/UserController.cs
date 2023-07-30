@@ -29,6 +29,7 @@ public class UserController : BaseController
      
          return Ok(user);
      }
+
      
      [HttpGet]
      public async Task<IActionResult> SignUp(String Email, String Password)
@@ -39,12 +40,28 @@ public class UserController : BaseController
 
          if (token == null)
          {
+             
              return Ok("An error has occured while generating the token");
          }
          else
          {
              return Ok("success");
          }
+     }
+     
+     [HttpGet]
+     public async Task<IActionResult> SignIn(String Email, String Password)
+     {
+         
+         var signIn = new SignInModel(authService);
+         var token = signIn.OnPostAsync(Email, Password);
+         
+         if (token == null)
+         {
+             return Ok("Cannot login field empty");
+         }
+         //
+         return Ok("Logged in");
      }
 
      // [HttpGet]
@@ -77,3 +94,4 @@ public class UserController : BaseController
      // }
      
 }
+

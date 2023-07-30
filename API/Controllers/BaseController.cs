@@ -11,6 +11,7 @@ public class BaseController: ControllerBase
 {
     protected readonly IMediator Mediator;
     protected readonly IFirebaseAuthService AuthService;
+    
     public BaseController(IMediator mediator, IFirebaseAuthService authService)
     {
         Mediator = mediator;
