@@ -53,16 +53,28 @@ public class UserController : BaseController
      public async Task<IActionResult> SignIn(String Email, String Password)
      {
          
-         var signIn = new SignInModel(authService);
-         var token = signIn.OnPostAsync(Email, Password);
+         var Login = new SignInModel(authService);
+         var token = Login.OnPostAsync(Email, Password);
          
          if (token == null)
          {
              return Ok("Cannot login field empty");
          }
-         //
+         /////////////////////////////////////////////
          return Ok("Logged in");
      }
+
+     [HttpPost]
+     public ActionResult EmailSender([FromBody] string toAddress, string subject, string body)
+     {
+         ////////////////////////////////////////////
+      
+         
+         
+         return Ok("Message sent");
+     }
+
+     
 
      // [HttpGet]
      // public async Task<List<string>> GetCommonStudents(int teacherId1, int teacherId2)
